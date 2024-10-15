@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -37,22 +37,25 @@
                                         <hr />
                                         <table class=" table table-bordered table-hover">
                                             <thead>
-                                                <tr>
+                                                <tr style="text-align: center;" >
                                                     <th>ID</th>
                                                     <th>Email</th>
-                                                    <th>Full Name</th>
+                                                    <th>Name</th>
                                                     <th>Role</th>
+                                                    <th>image</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="user" items="${users1}">
-
-                                                    <tr>
+                                                <c:forEach var="user" items="${users}">
+                                                    <tr style="text-align: center;">
                                                         <th>${user.id}</th>
                                                         <td>${user.email}</td>
-                                                        <td>${user.fullName}</td>
+                                                        <td>${user.name}</td>
                                                         <td>${user.role.name}</td>
+                                                        <td>
+                                                            <img src="/images/avatar/${user.img}" alt="User Image" width="150"/>
+                                                        </td>
                                                         <td>
                                                             <a href="/admin/user/${user.id}"
                                                                 class="btn btn-success">View</a>
@@ -62,7 +65,6 @@
                                                                 class="btn btn-danger">Delete</a>
                                                         </td>
                                                     </tr>
-
                                                 </c:forEach>
 
                                             </tbody>

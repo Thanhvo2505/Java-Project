@@ -6,10 +6,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
+import java.util.List;
+
+
 
 @Entity
 @Table(name = "users")
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,76 +29,24 @@ public class User {
     private String email;
     @Column
     private String password;
-    @Column
+    @Column(columnDefinition="MEDIUMTEXT")
     private String address;
     @Column
     private String phone;
     @Column
     private String avatar;
+    @Column
+    private String img;
+    @Column(name = "is_deleted") // Trường để đánh dấu xóa mềm
+    private Boolean isDeleted = false; // Mặc định là false
 
     // roleId
     // User many -> to one -> role
-    // @ManyToOne
-    // @JoinColumn(name = "role_id")
-    // private Role role;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @OneToMany(mappedBy="user")
+    private List<Booking> bookings;
 
 }
