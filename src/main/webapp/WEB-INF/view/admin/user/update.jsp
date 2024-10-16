@@ -3,7 +3,6 @@
         <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
             <!DOCTYPE html>
             <html lang="en">
-
             <head>
                 <meta charset="utf-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -34,7 +33,7 @@
                                             <h3>Update a user</h3>
                                             <hr />
                                             <form:form method="post" action="/admin/user/update"
-                                                modelAttribute="newUser">
+                                                modelAttribute="user">
 
                                                 <div class="mb-3" style="display: none;">
                                                     <label class="form-label">Id:</label>
@@ -52,14 +51,21 @@
                                                     <form:input type="text" class="form-control" path="phone" />
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label">Full Name:</label>
-                                                    <form:input type="text" class="form-control" path="fullName" />
+                                                    <label class="form-label">Name:</label>
+                                                    <form:input type="text" class="form-control" path="name" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Address:</label>
                                                     <form:input type="text" class="form-control" path="address" />
                                                 </div>
-
+                                                <div class="mb-3">
+                                                    <label class="form-label">Active:</label>
+                                                    <form:select path="active">
+                                                        <form:option value="true">Active</form:option>
+                                                        <form:option value="false">Inactive</form:option>
+                                                    </form:select>
+                                                </div>
+                                                                                             
                                                 <button type="submit" class="btn btn-warning">Update</button>
                                             </form:form>
                                         </div>

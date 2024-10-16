@@ -38,8 +38,7 @@ public class User {
     private String avatar;
     @Column
     private String img;
-    @Column(name = "is_deleted") // Trường để đánh dấu xóa mềm
-    private Boolean isDeleted = false; // Mặc định là false
+    private Boolean isActive; // Mặc định là true
 
     // roleId
     // User many -> to one -> role
@@ -53,12 +52,19 @@ public class User {
     @Override
     public String toString() {
         return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", address="
-                + address + ", phone=" + phone + ", avatar=" + avatar + ", img=" + img + ", isDeleted=" + isDeleted
+                + address + ", phone=" + phone + ", avatar=" + avatar + ", img=" + img + ", isActive=" + isActive
                 + ", role=" + role.getName();
                 
                 // + ", bookings=" + bookings + "]";
     }
 
-    
+
+    public boolean isActive() {
+        return isActive;
+    }
+    // Setter
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 
 }

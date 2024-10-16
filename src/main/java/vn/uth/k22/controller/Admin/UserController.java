@@ -15,6 +15,10 @@ import vn.uth.k22.service.UserService;
 
 
 
+
+
+
+
 @Controller
 public class UserController {
     private final UserService userService; 
@@ -53,11 +57,53 @@ public class UserController {
         User newUser = this.userService.saveUser(user);
         return "redirect:/admin/user/show";
     }
+
+    // get form update user
+    @GetMapping("/admin/user/update/{id}")
+    public String getMethodName(Model model, @PathVariable("id") long id) {
+        User user = this.userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "admin/user/update";
+    }
+
+    // post update user
+    @PostMapping("/admin/user/update")
+    public String postMethodName(@ModelAttribute("user") User user) {
+        User currentUser = this.userService.getUserById(user.getId());
+        if(currentUser!= null){
+            currentUser.setPhone(user.getPhone());
+            currentUser.setName(user.getName());
+            currentUser.setAddress(user.getAddress());
+            currentUser.setActive(user.getIsActive());
+            this.userService.saveUser(currentUser);
+        } 
+        return "redirect:/admin/user/" + currentUser.getId() ;
+    }
+
+
+    // get confirm delete-soft
+    @GetMapping("/admin/user/delete/{id}")
+    public String getConfirmDeleteSoftPage(Model model, @PathVariable("id") long id) {
+        User currentUser = this.userService.getUserById(id);
+        System.out.println(currentUser);
+        model.addAttribute("user", currentUser);
+        return "admin/user/delete";
+    }
+
+    // // post delete-soft
+    // @PostMapping("path")
+    // public String postDeleteSoftUser() {
+       
+        
+    //     return   "redirect:/admin/user/" + currentUser.getId()
+    // }
+    
+     
     
     
 
 
-
+    
 }
 
 

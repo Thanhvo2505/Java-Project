@@ -43,7 +43,7 @@
                                         <div class="col-md-6 col-12 mx-auto">
                                             <h3>Create a product</h3>
                                             <hr />
-                                            <form:form method="post" action="/admin/user/create" class="row"
+                                            <form:form method="post" action="/admin/pod/create" class="row"
                                                 enctype="multipart/form-data" modelAttribute="newProduct">
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Name:</label>
@@ -92,7 +92,7 @@
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label for="avatarFile" class="form-label">Image:</label>
                                                     <input class="form-control" type="file" id="avatarFile"
-                                                        accept=".png, .jpg, .jpeg" name="userFile" />
+                                                        accept=".png, .jpg, .jpeg" name="podFile" />
                                                 </div>
                                                 <div class="col-12 mb-3">
                                                     <img style="max-height: 250px; display: none;" alt="avatar preview"

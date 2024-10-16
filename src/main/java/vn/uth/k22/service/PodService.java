@@ -21,5 +21,9 @@ public class PodService {
     }
 
 
+    public Pod getPodById(long id){
+        return this.podRepository.findById(id);
+    }
+
     
 }

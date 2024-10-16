@@ -43,6 +43,7 @@
                                                     <th>Name</th>
                                                     <th>Role</th>
                                                     <th>image</th>
+                                                    <th>Active</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -52,10 +53,23 @@
                                                         <th>${user.id}</th>
                                                         <td>${user.email}</td>
                                                         <td>${user.name}</td>
-                                                        <td>${user.role.name}</td>
                                                         <td>
                                                             <img src="/images/avatar/${user.img}" alt="User Image" width="150"/>
                                                         </td>
+                                                        <td>${user.role.name}</td>     
+                                                        <!-- active or not                                     -->
+                                                        <td>
+                                                            <c:choose>
+                                                                <c:when test="${user.isActive}">
+                                                                    <button class="btn btn-success">Active</button>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <button class="btn btn-danger">Inactive</button>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </td>
+                                                        
+
                                                         <td>
                                                             <a href="/admin/user/${user.id}"
                                                                 class="btn btn-success">View</a>

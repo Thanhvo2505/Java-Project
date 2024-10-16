@@ -39,6 +39,15 @@ public class Pod {
     @OneToMany(mappedBy="pod")
     List<Booking> bookings;
 
+
+    @Override
+    public String toString() {
+        return "Pod [id=" + id + ", name=" + name + ", location=" + location + ", pricePerHour=" + pricePerHour
+                + ", capacity=" + capacity + ", isAvailable=" + isAvailable + ", img=" + img + ", description="
+                + description + "]";
+    }
+
+    
 }
 
 
