@@ -18,7 +18,7 @@
                                 <div class="carousel-item active rounded">
                                     <img src="/client/img/pod-meeting.jpg"
                                         class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">pod-meeting</a>
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">WorkPod đơn & đôi</a>
                                 </div>
                                 <div class="carousel-item rounded">
                                     <img src="/client/img/pod-membership.jpg" class="img-fluid w-100 h-100 rounded"
@@ -28,7 +28,7 @@
                                 <div class="carousel-item rounded">
                                     <img src="/client/img/ThaoDien.png" class="img-fluid w-100 h-100 rounded"
                                         alt="Second slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Group</a>
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">Phòng họp</a>
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId"

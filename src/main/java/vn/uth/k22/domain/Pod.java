@@ -1,5 +1,7 @@
 package vn.uth.k22.domain;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
-import java.util.List;
 
 
 
@@ -26,7 +27,7 @@ public class Pod {
     @Column(columnDefinition="TEXT")
     private String location;
 
-    private double price_per_hour;
+    private double pricePerHour;
     private int capacity;
     private boolean isAvailable;
     private String img;

@@ -1,6 +1,8 @@
 package vn.uth.k22.domain;
 
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +13,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
-import java.util.List;
 
 
 
@@ -48,5 +49,16 @@ public class User {
 
     @OneToMany(mappedBy="user")
     private List<Booking> bookings;
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", address="
+                + address + ", phone=" + phone + ", avatar=" + avatar + ", img=" + img + ", isDeleted=" + isDeleted
+                + ", role=" + role.getName();
+                
+                // + ", bookings=" + bookings + "]";
+    }
+
+    
 
 }

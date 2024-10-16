@@ -15,7 +15,7 @@
                             User
                         </a>
 
-                        <a class="nav-link" href="/admin/workspace">
+                        <a class="nav-link" href="/admin/pod">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             WorkSpaces
                         </a>
