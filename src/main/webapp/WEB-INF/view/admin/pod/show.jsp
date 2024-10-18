@@ -41,6 +41,11 @@
                                                     <th>ID</th>
                                                     <th>Name</th>
                                                     <th>Image</th>
+                                                    <th>
+                                                        capacity
+                                                    </th>
+                                                    <th>available</th>
+                                                    <th>Price / H</th>
                                                     <th>Location</th>                                      
                                                 </tr>
                                             </thead>
@@ -50,7 +55,7 @@
                                                         <th>${pod.id}</th>
                                                         <td>${pod.name}</td>
                                                         <td>
-                                                            <img src="/images/pod/${pod.img}" alt="" width="150">
+                                                            <img src="/images/pod/${pod.avatar}" alt="" width="150">
                                                         </td>
                                                         <td>${pod.location}</td>
                                                         <td>

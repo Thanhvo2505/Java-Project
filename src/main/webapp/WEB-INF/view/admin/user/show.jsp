@@ -42,7 +42,7 @@
                                                     <th>Email</th>
                                                     <th>Name</th>
                                                     <th>Role</th>
-                                                    <th>image</th>
+                                                    <th>Avatar</th>
                                                     <th>Active</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -54,8 +54,9 @@
                                                         <td>${user.email}</td>
                                                         <td>${user.name}</td>
                                                         <td>
-                                                            <img src="/images/avatar/${user.img}" alt="User Image" width="150"/>
+                                                            <img src="/images/avatar/${user.avatar}" alt="User Image" width="150" height="100"/>
                                                         </td>
+                                                        
                                                         <td>${user.role.name}</td>     
                                                         <!-- active or not                                     -->
                                                         <td>

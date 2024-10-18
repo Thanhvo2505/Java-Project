@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Bean
+    // config jsp
     public ViewResolver viewResolver() {
         final InternalResourceViewResolver bean = new InternalResourceViewResolver();
         bean.setViewClass(JstlView.class);
@@ -29,6 +30,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
     @Override
+    // handle static resources
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");

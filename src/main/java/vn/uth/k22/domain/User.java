@@ -14,8 +14,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-
-
 @Entity
 @Table(name = "users")
 @Data
@@ -36,9 +34,8 @@ public class User {
     private String phone;
     @Column
     private String avatar;
-    @Column
-    private String img;
-    private Boolean isActive; // Mặc định là true
+  
+    private Boolean isActive = true; // Mặc định là true
 
     // roleId
     // User many -> to one -> role
@@ -52,19 +49,10 @@ public class User {
     @Override
     public String toString() {
         return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", address="
-                + address + ", phone=" + phone + ", avatar=" + avatar + ", img=" + img + ", isActive=" + isActive
+                + address + ", phone=" + phone + ", avatar=" + avatar + ", isActive=" + isActive
                 + ", role=" + role.getName();
                 
                 // + ", bookings=" + bookings + "]";
-    }
-
-
-    public boolean isActive() {
-        return isActive;
-    }
-    // Setter
-    public void setActive(boolean isActive) {
-        this.isActive = isActive;
     }
 
 }

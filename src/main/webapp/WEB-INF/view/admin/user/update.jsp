@@ -11,8 +11,18 @@
                 <meta name="author" content="Phạm An K22 UTH" />
                 <title>Update User - Phạm An K22 UTH</title>
                 <link href="/css/styles.css" rel="stylesheet" />
-
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                    $(document).ready(() => {
+                        const avatarFileUpdate = $("#avatarFileUpdate");
+                        avatarFileUpdate.change(function (e) {
+                            const imgURL = URL.createObjectURL(e.target.files[0]);
+                            $("#avatarPreviewUpdate").attr("src", imgURL);
+                            $("#avatarPreviewUpdate").css({ "display": "block" });
+                        });
+                    });
+                </script>
             </head>
 
             <body class="sb-nav-fixed">
@@ -33,6 +43,7 @@
                                             <h3>Update a user</h3>
                                             <hr />
                                             <form:form method="post" action="/admin/user/update"
+                                                enctype="multipart/form-data"
                                                 modelAttribute="user">
 
                                                 <div class="mb-3" style="display: none;">
@@ -60,12 +71,24 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Active:</label>
-                                                    <form:select path="active">
+                                                    <form:select path="isActive">
                                                         <form:option value="true">Active</form:option>
                                                         <form:option value="false">Inactive</form:option>
-                                                    </form:select>
+                                                    </form:select>                                           
                                                 </div>
-                                                                                             
+
+                                                    <!-- div ảnh -->
+                                                    <div class="mb-3 col-12 col-md-6">
+                                                        <label for="avatarFileUpdate" class="form-label">Avatar:</label>
+                                                        <input class="form-control" type="file" id="avatarFileUpdate"
+                                                            accept=".png, .jpg, .jpeg" name="avatarFileUpdate" />
+                                                    </div>
+                                                    
+                                                    <div class="col-12 mb-3">
+                                                        <img style="max-height: 250px; display: none;" alt="avatar preview"
+                                                            id="avatarPreviewUpdate" />
+                                                    </div>
+                                                                    
                                                 <button type="submit" class="btn btn-warning">Update</button>
                                             </form:form>
                                         </div>

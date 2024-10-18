@@ -8,23 +8,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import vn.uth.k22.domain.Role;
 import vn.uth.k22.domain.User;
+import vn.uth.k22.service.RoleService;
+import vn.uth.k22.service.UploadService;
 import vn.uth.k22.service.UserService;
-
-
-
-
-
-
 
 
 @Controller
 public class UserController {
     private final UserService userService; 
+    private final RoleService roleSerVice;
+    private final UploadService uploadService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, RoleService roleSerVice, UploadService uploadService) {
         this.userService = userService;
+        this.roleSerVice = roleSerVice;
+        this.uploadService = uploadService;
     }
     
     // admin view all users
@@ -54,13 +57,15 @@ public class UserController {
     // post create user
     @PostMapping("/admin/user/create")
     public String postCreatUser(@ModelAttribute("newUser") User user) {
+        Role role = this.roleSerVice.getRoleByName(user.getRole().getName());
+        user.setRole(role);
         User newUser = this.userService.saveUser(user);
-        return "redirect:/admin/user/show";
+        return "redirect:/admin/user";
     }
 
     // get form update user
     @GetMapping("/admin/user/update/{id}")
-    public String getMethodName(Model model, @PathVariable("id") long id) {
+    public String getFormUpdateUserPage(Model model, @PathVariable("id") long id) {
         User user = this.userService.getUserById(id);
         model.addAttribute("user", user);
         return "admin/user/update";
@@ -68,16 +73,21 @@ public class UserController {
 
     // post update user
     @PostMapping("/admin/user/update")
-    public String postMethodName(@ModelAttribute("user") User user) {
+    public String postMethodName(@ModelAttribute("user") User user,  
+    @RequestParam("avatarFileUpdate") MultipartFile avatarFile) {
+      
+        String avatar = this.uploadService.handleSaveUploadFile(avatarFile, "avatar");
         User currentUser = this.userService.getUserById(user.getId());
+
         if(currentUser!= null){
             currentUser.setPhone(user.getPhone());
             currentUser.setName(user.getName());
             currentUser.setAddress(user.getAddress());
-            currentUser.setActive(user.getIsActive());
+            currentUser.setIsActive(user.getIsActive());
+            currentUser.setAvatar(avatar);      
             this.userService.saveUser(currentUser);
         } 
-        return "redirect:/admin/user/" + currentUser.getId() ;
+        return "redirect:/admin/user";
     }
 
 
