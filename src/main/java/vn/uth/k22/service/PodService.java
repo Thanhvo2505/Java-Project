@@ -1,6 +1,7 @@
 package vn.uth.k22.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -17,12 +18,14 @@ public class PodService {
     }
     
     public List<Pod> getAllPod(){
-        return this.podRepository.findAll();
+        List<Pod> pods = this.podRepository.findAll();
+        return pods;
     }
 
 
-    public Pod getPodById(long id){
-        return this.podRepository.findById(id);
+    public Pod getPodById(long id) {
+        Optional<Pod> podOptional = this.podRepository.findById(id);
+            return podOptional.orElse(null); // Trả về null nếu không tìm thấy Pod
     }
 
     

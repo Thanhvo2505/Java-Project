@@ -12,8 +12,6 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 
-
-
 @Entity
 @Table(name="pods")
 @Data
@@ -27,8 +25,10 @@ public class Pod {
     @Column(columnDefinition="TEXT")
     private String location;
 
+    @Column(name = "price_per_hour")
     private double pricePerHour;
     private int capacity;
+    @Column(name = "is_available")
     private boolean isAvailable;
     private String img;
     @Column(columnDefinition="MEDIUMTEXT")
@@ -47,7 +47,6 @@ public class Pod {
                 + description + "]";
     }
 
-    
 }
 
 

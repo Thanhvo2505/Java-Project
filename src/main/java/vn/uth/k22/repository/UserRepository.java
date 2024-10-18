@@ -8,12 +8,11 @@ import vn.uth.k22.domain.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     // Các phương thức tùy chỉnh có thể được định nghĩa ở đây
+  
     @Override
     List<User> findAll();
 
     User findById(long id);
 
-    @Override
-    User save(User user);
 
 }

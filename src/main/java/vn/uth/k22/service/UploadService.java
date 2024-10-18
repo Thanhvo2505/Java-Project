@@ -36,14 +36,12 @@ public class UploadService {
 
             File serverFile = new File(dir.getAbsolutePath() + File.separator + finalName);
             // uuid
-
-            BufferedOutputStream stream = new BufferedOutputStream(
-                    new FileOutputStream(serverFile));
-            stream.write(bytes);
-            stream.close();
+            try (BufferedOutputStream stream = new BufferedOutputStream(
+                    new FileOutputStream(serverFile))) {
+                stream.write(bytes);
+            }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new RuntimeException("Error saving uploaded file: " + e.getMessage(), e);
         }
         return finalName;
     }

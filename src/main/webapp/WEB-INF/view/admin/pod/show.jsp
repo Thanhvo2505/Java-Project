@@ -1,18 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <!DOCTYPE html>
-        <html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html lang="en">
 
-        <head>
-            <meta charset="utf-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-            <meta name="description" content="Phạm An K22 UTH - Dự án laptopshop" />
-            <meta name="author" content="Phạm An K22 UTH" />
-            <title>Dashboard - Phạm An K22 UTH</title>
-            <link href="/css/styles.css" rel="stylesheet" />
-            <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        </head>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Phạm An K22 UTH - Dự án laptopshop" />
+    <meta name="author" content="Phạm An K22 UTH" />
+    <title>Dashboard - Phạm An K22 UTH</title>
+    <link href="/css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
 
         <body class="sb-nav-fixed">
             <jsp:include page="../layout/header.jsp" />
@@ -50,7 +51,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody  style="text-align: center;">
-                                                <c:forEach var="pod" items="${pods}">
+                                                <!-- <c:forEach var="pod" items="${pods}">
                                                     <tr>
                                                         <th>${pod.id}</th>
                                                         <td>${pod.name}</td>
@@ -68,7 +69,7 @@
                                                         </td>
                                                     </tr>
 
-                                                </c:forEach>
+                                                </c:forEach> -->
 
                                             </tbody>
                                         </table>

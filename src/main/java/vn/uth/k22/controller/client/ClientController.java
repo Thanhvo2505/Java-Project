@@ -20,8 +20,9 @@ public class ClientController {
     @GetMapping("/")
     public String getHomePage(Model model) {
         List<Pod> pods = this.podService.getAllPod();
+        System.out.println(pods);
         model.addAttribute("pods", pods);
-        
         return "/client/homepage/show";
+        // return "hello";
     }
 }
