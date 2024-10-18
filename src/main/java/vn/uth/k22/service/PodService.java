@@ -28,5 +28,9 @@ public class PodService {
             return podOptional.orElse(null); // Trả về null nếu không tìm thấy Pod
     }
 
+    public Pod handleSavPod(Pod pod){
+        return this.podRepository.save(pod);
+    }
+
     
 }

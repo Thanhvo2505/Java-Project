@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,13 +50,28 @@
                                                 </tr>
                                             </thead>
                                             <tbody  style="text-align: center;">
-                                                <!-- <c:forEach var="pod" items="${pods}">
+                                                <c:forEach var="pod" items="${pods}">
                                                     <tr>
                                                         <th>${pod.id}</th>
                                                         <td>${pod.name}</td>
                                                         <td>
-                                                            <img src="/images/pod/${pod.avatar}" alt="" width="150">
+                                                            <img src="/images/pod/${pod.img}" alt="" width="150">
                                                         </td>
+                                                        <td>${pod.capacity}</td>
+                                                        <!-- active or not   -->
+                                                        <td>
+                                                            <c:choose>
+                                                                <c:when test="${pod.isAvailable}">
+                                                                    <button class="btn btn-success">Available</button>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <button class="btn btn-danger">Not Available</button>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </td>
+                                                      
+                                                        
+                                                        <td>${pod.pricePerHour}</td>
                                                         <td>${pod.location}</td>
                                                         <td>
                                                             <a href="/admin/pod/${pod.id}"
@@ -69,7 +83,7 @@
                                                         </td>
                                                     </tr>
 
-                                                </c:forEach> -->
+                                                </c:forEach>
 
                                             </tbody>
                                         </table>

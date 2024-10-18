@@ -41,8 +41,8 @@
                                                     <th>ID</th>
                                                     <th>Email</th>
                                                     <th>Name</th>
-                                                    <th>Role</th>
                                                     <th>Avatar</th>
+                                                    <th>Role</th>    
                                                     <th>Active</th>
                                                     <th>Action</th>
                                                 </tr>

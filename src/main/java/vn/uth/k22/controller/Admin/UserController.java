@@ -89,8 +89,7 @@ public class UserController {
         } 
         return "redirect:/admin/user";
     }
-
-
+    
     // get confirm delete-soft
     @GetMapping("/admin/user/delete/{id}")
     public String getConfirmDeleteSoftPage(Model model, @PathVariable("id") long id) {
@@ -100,20 +99,12 @@ public class UserController {
         return "admin/user/delete";
     }
 
-    // // post delete-soft
-    // @PostMapping("path")
-    // public String postDeleteSoftUser() {
-       
-        
-    //     return   "redirect:/admin/user/" + currentUser.getId()
-    // }
-    
-     
-    
-    
-
-
-    
+    // post delete
+    @PostMapping("/admin/user/delete")
+    public String postDeleteUser(@ModelAttribute("user") User user) {
+       this.userService.deleteAUser(user.getId());
+        return "redirect:/admin/user";
+    }
 }
 
 

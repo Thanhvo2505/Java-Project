@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
         <html lang="en">
         <head>
@@ -101,13 +103,17 @@
                                                             <img src="/client/img/${pod.img}"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">
-                                                             <p class="text-dark fs-5 fw-bold mb-0">${pod.pricePerHour}</p>
+                                                        <!-- jstl format  -->
+                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
+                                                            <p id="pricePerHour" class="text-dark fs-5 fw-bold mb-0">
+                                                                <fmt:formatNumber value="${pod.pricePerHour}" type="number" groupingUsed="true" maxFractionDigits="0"/>vnđ/hour
+                                                            </p>
                                                         </div>
+                                                        
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>phòng họp</h4>
+                                                            <p style="color: green;"> ${pod.capacity} people</p>
                                                             <p>description ${pod.description} </p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                                 <a href="#"
@@ -150,8 +156,9 @@
             <script src="/client/lib/easing/easing.min.js"></script>
             <script src="/client/lib/waypoints/waypoints.min.js"></script>
             <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
-            <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
-
+            <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>  
+            
+           
             <!-- Template Javascript -->
             <script src="/client/js/main.js"></script>
         </body>

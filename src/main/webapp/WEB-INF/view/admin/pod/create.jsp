@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Phạm An K22 UTH - Dự án laptopshop" />
     <meta name="author" content="Phạm An K22 UTH" />
-    <title>Create Product - Phạm An K22 UTH</title>
+    <title>Create a pod - Phạm An K22 UTH</title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -33,7 +33,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Products</h1>
+                    <h1 class="mt-4">Pod</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
                         <li class="breadcrumb-item active">Pod</li>
@@ -44,8 +44,51 @@
                                 <h3>Create a pod</h3>
                                 <hr />
                                 <form:form method="post" action="/admin/pod/create" class="row"
-                                    enctype="multipart/form-data" modelAttribute="newProduct">
+                                    enctype="multipart/form-data" modelAttribute="newPod">
+
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label">name:</label>
+                                        <form:input type="name" class="form-control" path="name" />
+                                    </div>
                                     
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label">description:</label>
+                                        <form:input type="description" class="form-control" path="description" />
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label">Location</label>
+                                        <form:input type="text" class="form-control" path="location" />
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label">capacity:</label>
+                                        <form:input type="number" class="form-control" path="capacity" />
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label">Available</label>
+                                        <form:select path="isAvailable" class="form-control">
+                                            <form:option value="true">Yes</form:option>
+                                            <form:option value="false">No</form:option>
+                                        </form:select>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label">pricePerHour</label>
+                                        <form:input type="number" class="form-control" path="capacity" />
+                                    </div>
+                                     
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label for="avatarFile" class="form-label">Img:</label>
+                                        <input class="form-control" type="file" id="avatarFile"
+                                            accept=".png, .jpg, .jpeg" name="podImg" />
+                                    </div>
+                                    
+                                    <div class="col-12 mb-3">
+                                        <img style="max-height: 250px; display: none;" alt="avatar preview"
+                                            id="avatarPreview" />
+                                    </div>
                             
                                     <div class="col-12 mb-5">
                                         <button type="submit" class="btn btn-primary">Create</button>

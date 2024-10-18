@@ -39,14 +39,32 @@ public class Pod {
     @OneToMany(mappedBy="pod")
     List<Booking> bookings;
 
-
-    @Override
-    public String toString() {
-        return "Pod [id=" + id + ", name=" + name + ", location=" + location + ", pricePerHour=" + pricePerHour
-                + ", capacity=" + capacity + ", isAvailable=" + isAvailable + ", img=" + img + ", description="
-                + description + "]";
+    public Pod(int capacity, String description, long id, String img, boolean isAvailable, String location, String name, double pricePerHour) {
+        this.capacity = capacity;
+        this.description = description;
+        this.id = id;
+        this.img = img;
+        this.isAvailable = isAvailable;
+        this.location = location;
+        this.name = name;
+        this.pricePerHour = pricePerHour;
     }
 
+    public Pod() {
+    }
+    
+    @Override
+    public String toString() {
+        return "Pod [id=" + id + ", name=" + name + ", isAvailable=" + isAvailable + ", img=" + img + ", description=" + description + "]";
+    }
+
+    public boolean getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
 }
 
 

@@ -23,6 +23,6 @@ public class ClientController {
         System.out.println(pods);
         model.addAttribute("pods", pods);
         return "/client/homepage/show";
-        // return "hello";
+      
     }
 }
