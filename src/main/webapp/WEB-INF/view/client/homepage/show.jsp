@@ -97,7 +97,6 @@
                                             <!-- for chỗ này -->
                                             <c:forEach var="pod" items="${pods}" >
                                                 <div class="col-md-6 col-lg-4 col-xl-3" >
-
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
                                                             <img src="/client/img/${pod.img}"
@@ -112,7 +111,11 @@
                                                         
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>phòng họp</h4>
+                                                      
+                                                            <a href="#">
+                                                                <h4>${pod.name}</h4>
+                                                            </a>
+                                                         
                                                             <p style="color: green;"> ${pod.capacity} people</p>
                                                             <p>description ${pod.description} </p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">

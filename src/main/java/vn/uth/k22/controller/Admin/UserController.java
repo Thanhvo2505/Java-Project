@@ -94,7 +94,6 @@ public class UserController {
     @GetMapping("/admin/user/delete/{id}")
     public String getConfirmDeleteSoftPage(Model model, @PathVariable("id") long id) {
         User currentUser = this.userService.getUserById(id);
-        System.out.println(currentUser);
         model.addAttribute("user", currentUser);
         return "admin/user/delete";
     }

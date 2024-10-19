@@ -32,5 +32,9 @@ public class PodService {
         return this.podRepository.save(pod);
     }
 
+    public void handleDeletePodById(long id){
+        this.podRepository.deleteById(id);
+    }
+
     
 }
