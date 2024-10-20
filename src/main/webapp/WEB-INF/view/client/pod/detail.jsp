@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
         <!DOCTYPE html>
         <html lang="en">
 
@@ -53,15 +56,17 @@
                                 <div class="col-lg-6">
                                     <div class="border rounded">
                                         <a href="#">
-                                            <img src="/client/img/single-item.jpg" class="img-fluid rounded"
+                                            <img src="/client/img/${pod.img}" class="img-fluid rounded"
                                                 alt="Image">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <h4 class="fw-bold mb-3">Brocoli</h4>
-                                    <p class="mb-3">Category: Vegetables</p>
-                                    <h5 class="fw-bold mb-3">3,35 $</h5>
+                                    <h4 class="fw-bold mb-3">${pod.name}</h4>
+                                   
+                                    <h5 class="fw-bold mb-3">
+                                        <fmt:formatNumber value="${pod.pricePerHour}" pattern="#,##0.00 VND" /> / giờ
+                                    </h5>
                                     <div class="d-flex mb-4">
                                         <i class="fa fa-star text-secondary"></i>
                                         <i class="fa fa-star text-secondary"></i>
@@ -69,10 +74,8 @@
                                         <i class="fa fa-star text-secondary"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition
-                                        injected humour, or non-characteristic words etc.</p>
-                                    <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock
-                                        flounder; chain pickerel hatchetfish, pencilfish snailfish</p>
+                                    <p class="mb-4">${pod.description}</p>
+                                
                                     <div class="input-group quantity mb-5" style="width: 100px;">
                                         <div class="input-group-btn">
                                             <button class="btn btn-sm btn-minus rounded-circle bg-light border">
@@ -89,9 +92,9 @@
                                     </div>
                                     <a href="#"
                                         class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
-                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                            class="fa fa-shopping-bag me-2 text-primary"></i> Rent </a>
                                 </div>
-                                <div class="col-lg-12">
+                                <!-- <div class="col-lg-12">
                                     <nav>
                                         <div class="nav nav-tabs mb-3">
                                             <button class="nav-link active border-white border-bottom-0" type="button"
@@ -214,11 +217,11 @@
                                                 Clita erat ipsum et lorem et sit</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>
-                        <div class="col-lg-4 col-xl-3">
+                        <!-- <div class="col-lg-4 col-xl-3">
                             <div class="row g-4 fruite">
                                 <div class="col-lg-12">
 
@@ -259,14 +262,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
             </div>
             <!-- Single Product End -->
 
-            <jsp:include page="../layout/footer.jsp" />
+          
 
 
             <!-- Back to Top -->

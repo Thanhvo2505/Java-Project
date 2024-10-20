@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Bỏ qua tất cả file ảnh
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.svg

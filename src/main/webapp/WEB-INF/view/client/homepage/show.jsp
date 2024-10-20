@@ -31,6 +31,20 @@
             <!-- Template Stylesheet -->
             <link href="/client/css/style.css" rel="stylesheet">
 
+            <style>
+
+                .highlight-pod {
+                    color: red;
+                    font-weight: bold;
+                    background-color: yellow;
+                }
+                a.highlight-pod:hover {
+                    color: red;
+                    font-weight: bold;
+                    background-color: yellow;
+                }
+            </style>
+
         </head>
 
         <body>
@@ -112,7 +126,7 @@
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                       
-                                                            <a href="#">
+                                                            <a href="/pod/${pod.id}">
                                                                 <h4>${pod.name}</h4>
                                                             </a>
                                                          
@@ -164,6 +178,24 @@
            
             <!-- Template Javascript -->
             <script src="/client/js/main.js"></script>
+            <script>
+               $(document).ready(function() {
+                    const podLinks = $("a[href^='/pod/detail/']");
+
+                    podLinks.each(function() {
+                        // Thêm sự kiện khi di chuột vào (mouseover)
+                        $(this).on('mouseover', function() {
+                            $(this).addClass('highlight-pod'); // Thêm class làm nổi bật
+                        });
+
+                        // Thêm sự kiện khi rời chuột (mouseout)
+                        $(this).on('mouseout', function() {
+                            $(this).removeClass('highlight-pod'); // Bỏ class khi rời chuột
+                        });
+                    });
+                });
+            </script>
+            
         </body>
 
         </html>
