@@ -2,6 +2,7 @@ package vn.uth.k22.controller.Admin;
 
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +24,13 @@ public class UserController {
     private final UserService userService; 
     private final RoleService roleSerVice;
     private final UploadService uploadService;
+    private BCryptPasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, RoleService roleSerVice, UploadService uploadService) {
+    public UserController(UserService userService, RoleService roleSerVice, UploadService uploadService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleSerVice = roleSerVice;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
     
     // admin view all users
@@ -56,9 +59,22 @@ public class UserController {
     
     // post create user
     @PostMapping("/admin/user/create")
-    public String postCreatUser(@ModelAttribute("newUser") User user) {
+    public String postCreatUser(@ModelAttribute("newUser") User user,
+    @RequestParam("avatarFile") MultipartFile avatarFile) {
+        if(user == null){
+            System.out.println("Data User Null");
+            return "error";
+        }
+        String avatar = this.uploadService.handleSaveUploadFile( avatarFile, "avatar");
+        String hashPassword = this.passwordEncoder.encode(user.getPassword());
+        // set role
         Role role = this.roleSerVice.getRoleByName(user.getRole().getName());
         user.setRole(role);
+        // set name avatar
+        user.setAvatar(avatar);
+        // set hash password
+        user.setPassword(hashPassword);
+
         User newUser = this.userService.saveUser(user);
         return "redirect:/admin/user";
     }
